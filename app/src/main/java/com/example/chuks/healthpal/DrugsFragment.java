@@ -6,6 +6,7 @@ import android.app.DatePickerDialog;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.SystemClock;
@@ -17,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
+import com.example.chuks.healthpal.data.ReminderContract;
 import com.example.chuks.healthpal.data.ReminderDBHelper;
 
 import java.text.ParseException;
@@ -142,6 +144,7 @@ public class DrugsFragment extends android.support.v4.app.Fragment {
 
 
 
+                    Cursor cursor = getAllDrugs();
 
 
                 }
@@ -162,6 +165,18 @@ public class DrugsFragment extends android.support.v4.app.Fragment {
 
 
         return v;
+    }
+
+    private Cursor getAllDrugs(){
+
+        return mSQLiteDatabase.query(ReminderContract.ReminderEntry.TABLE_NAME,
+                null,
+                null,
+                null,
+                null,
+                null,
+               ReminderContract.ReminderEntry.COLUMN_NAME_CURRENT_TIME );
+
     }
 
    }
