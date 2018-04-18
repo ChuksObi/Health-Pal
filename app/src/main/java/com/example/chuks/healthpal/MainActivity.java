@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.chuks.healthpal.data.ReminderDBHelper;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView mHomeLabel;
     private TextView mDrugsLabel;
     private TextView mDetailsLabel;
+    private TextView mProfileLabel;
 
     private ViewPager mViewPager;
     private PageViewerAdapter mPageViewerAdapter;
@@ -53,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
         mHomeLabel = (TextView) findViewById(R.id.homeLabel);
         mDrugsLabel = (TextView) findViewById(R.id.drugsLabel);
         mDetailsLabel = (TextView) findViewById(R.id.detailsLabel);
+        mProfileLabel = (TextView) findViewById(R.id.profileLabel);
 
         mViewPager = (ViewPager) findViewById(R.id.mainViewPager);
 
@@ -80,10 +83,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        mProfileLabel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mViewPager.setCurrentItem(3);
+            }
+        });
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                changetabs(position);
+                changeTabs(position);
             }
 
             @Override
@@ -98,12 +107,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
     }
 
     @TargetApi(Build.VERSION_CODES.M)
 
-    private void changetabs(int position) {
+    private void changeTabs(int position) {
         if (position == 0) {
 
             mHomeLabel.setTextColor(getColor(R.color.textTabBright));
@@ -114,6 +122,9 @@ public class MainActivity extends AppCompatActivity {
 
             mDetailsLabel.setTextColor(getColor(R.color.textTabDull));
             mDetailsLabel.setTextSize(16);
+
+            mProfileLabel.setTextColor(getColor(R.color.textTabDull));
+            mProfileLabel.setTextSize(16);
         }
 
         if(position == 1){
@@ -126,6 +137,9 @@ public class MainActivity extends AppCompatActivity {
 
             mDetailsLabel.setTextColor(getColor(R.color.textTabDull));
             mDetailsLabel.setTextSize(16);
+
+            mProfileLabel.setTextColor(getColor(R.color.textTabDull));
+            mProfileLabel.setTextSize(16);
         }
 
         if(position == 2){
@@ -138,6 +152,24 @@ public class MainActivity extends AppCompatActivity {
 
             mDetailsLabel.setTextColor(getColor(R.color.textTabBright));
             mDetailsLabel.setTextSize(22);
+
+            mProfileLabel.setTextColor(getColor(R.color.textTabDull));
+            mProfileLabel.setTextSize(16);
+        }
+
+        if(position == 3){
+
+            mHomeLabel.setTextColor(getColor(R.color.textTabDull));
+            mHomeLabel.setTextSize(16);
+
+            mDrugsLabel.setTextColor(getColor(R.color.textTabDull));
+            mDrugsLabel.setTextSize(16);
+
+            mDetailsLabel.setTextColor(getColor(R.color.textTabDull));
+            mDetailsLabel.setTextSize(16);
+
+            mProfileLabel.setTextColor(getColor(R.color.textTabBright));
+            mProfileLabel.setTextSize(22);
         }
     }
 }

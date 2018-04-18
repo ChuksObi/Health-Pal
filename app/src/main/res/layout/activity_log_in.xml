@@ -31,7 +31,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:indeterminateTint="@color/textTabBright"        />
+        android:indeterminate="true"
+        android:indeterminateTint="@color/textTabBright" />
 
     <EditText
         android:id="@+id/registerEmailEditText"

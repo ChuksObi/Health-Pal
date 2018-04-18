@@ -48,6 +48,17 @@
             android:text="Details"
             android:textColor="@color/textTabDull"
             android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/profileLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="sans-serif"
+            android:padding="15dp"
+            android:text="Profile"
+            android:textColor="@color/textTabDull"
+            android:textSize="16sp" />
     </LinearLayout>
 
     <android.support.v4.view.ViewPager

@@ -52,6 +52,8 @@ public class RegisterActivity extends AppCompatActivity {
 
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
 
+        mProgressBar.setVisibility(View.INVISIBLE);
+
 
 
 
@@ -67,22 +69,21 @@ public class RegisterActivity extends AppCompatActivity {
                 String mUserEmailString = mUserEmail.getEditableText().toString();
                 String mUserPasswordString = mUserPassword.getEditableText().toString();
 
-               if (TextUtils.isEmpty(mUserNameString)){
-                    Toast.makeText(RegisterActivity.this, "Please Enter your Name", Toast.LENGTH_SHORT).show();
-                } else if (TextUtils.isEmpty(mUserEmailString)){
-                    Toast.makeText(RegisterActivity.this, "Please Enter your Email", Toast.LENGTH_SHORT).show();
-                } else if (TextUtils.isEmpty(mUserPasswordString)){
-                    Toast.makeText(RegisterActivity.this, "Please Enter your Password", Toast.LENGTH_SHORT).show();
-                } else if (mUserPasswordString.length() >= SIX ){
-                   Toast.makeText(RegisterActivity.this, "Your Password must be more than 6 Characters", Toast.LENGTH_SHORT).show();
-               } else if(!TextUtils.isEmpty(mUserEmailString) && !TextUtils.isEmpty(mUserNameString) && !TextUtils.isEmpty(mUserPasswordString)){
+//               if (TextUtils.isEmpty(mUserNameString)){
+//                    Toast.makeText(RegisterActivity.this, "Please Enter your Name", Toast.LENGTH_SHORT).show();
+//                } else if (TextUtils.isEmpty(mUserEmailString)){
+//                    Toast.makeText(RegisterActivity.this, "Please Enter your Email", Toast.LENGTH_SHORT).show();
+//                } else if (TextUtils.isEmpty(mUserPasswordString)){
+//                    Toast.makeText(RegisterActivity.this, "Please Enter your Password", Toast.LENGTH_SHORT).show();
+//                } else
+                    if(!TextUtils.isEmpty(mUserEmailString) && !TextUtils.isEmpty(mUserNameString) && !TextUtils.isEmpty(mUserPasswordString)){
                     mProgressBar.setVisibility(View.VISIBLE);
                     startRegisterOfUsers(mUserNameString,mUserEmailString,mUserPasswordString);
                 }
 
 
 
-                finish();
+
             }
         });
 
@@ -108,9 +109,6 @@ public class RegisterActivity extends AppCompatActivity {
                             Intent sendToAccountSetup = new Intent(RegisterActivity.this, SetUpActivity.class);
                             startActivity(sendToAccountSetup);
 
-
-                            Intent loggingInNewUserIntent = new Intent(RegisterActivity.this, MainActivity.class);
-                            startActivity(loggingInNewUserIntent);
                         } else {
 
                             mProgressBar.setVisibility(View.INVISIBLE);

@@ -33,6 +33,14 @@
         android:layout_below="@+id/addImage"
         android:layout_centerHorizontal="true" />
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:indeterminate="true"
+        android:layout_height="match_parent" />
+
     <Button
         android:id="@+id/nextButton"
         android:layout_width="match_parent"

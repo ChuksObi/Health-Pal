@@ -25,6 +25,9 @@ class PageViewerAdapter extends FragmentPagerAdapter {
             case 2:
                 DetailsFragment detailsFragment = new DetailsFragment();
                 return detailsFragment;
+            case 3:
+                ProfileFragment profileFragment = new ProfileFragment();
+                return profileFragment;
             default:
                 return null;
         }
@@ -33,6 +36,6 @@ class PageViewerAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return 4;
     }
 }
